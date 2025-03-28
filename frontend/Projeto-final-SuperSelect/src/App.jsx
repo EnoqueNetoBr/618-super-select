@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import './pages/cadastro/cadastro'
+import Cadastro from './pages/cadastro/cadastro'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      
+      <Cadastro/>
     </>
   )
 }

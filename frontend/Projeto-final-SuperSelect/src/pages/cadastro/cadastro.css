@@ -2,3 +2,11 @@
     padding: 0;
     margin: 0;
 }
+
+body{
+  background-image: url('fundoMercado.png');
+  background-size: cover; /* A imagem cobrirá toda a tela */
+  background-position: center; /* Centraliza a imagem */
+  opacity: 80%;
+}
+

@@ -1,3 +1,4 @@
+import './cadastro.css'
 function Cadastro() {
     return (
         <>
@@ -5,3 +6,5 @@ function Cadastro() {
         </>
     )
 }
+
+export default Cadastro
