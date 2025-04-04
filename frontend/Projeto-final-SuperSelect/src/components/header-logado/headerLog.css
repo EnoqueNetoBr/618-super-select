@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -14,10 +16,22 @@
 
 .header-low {
     background-color: #9AC1EB;
-    height: 40px;
-    display: flex;
+    height: 30px;
     align-items: center;
-    text-align: center;
+}
+
+.categorias {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    gap: 1px;
+    font-family: "Roboto";
+}
+
+.categorias p {
+    cursor: pointer;
+    padding-top: 3px;
 }
 
 img {
@@ -29,4 +43,30 @@ h1 {
     font-family: "Poppins";
     font-weight: 500;
     font-size: 40px;
+}
+
+#search {
+    margin-left: 90px;
+    width: 500px;
+    height: 40px;
+    border-radius: 10px;
+    font-family: "Roboto";
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.usuario {
+    margin-left: 240px;
+    display: flex;
+    align-items: center;
+}
+
+.usuario h3 {
+    margin-left: 10px;
+    font-family: "Poppins";
+}
+
+#userphoto {
+    width: 40px;
+    height: 40px;
 }
