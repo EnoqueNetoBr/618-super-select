@@ -3,7 +3,7 @@ import './dashboard.css';
 function Dashboard() {
   return (
     <>
-      <div className='mt-5 d-flex justify-content-center aling-items-center'>
+      <div className='mt-5 d-flex justify-content-center bg-secondary aling-items-center'>
         <h1>Hello world</h1>
       </div>
     </>
