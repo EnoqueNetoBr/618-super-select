@@ -1,9 +1,25 @@
-Tigrinho baixe agora Ícone da Web global
-BlueStacks
-https://www.bluestacks.com › pt-br › apps › strategy › tig…
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.env
 
-Baixar & Jogar Jogo do Tigrinho no PC & Mac …
-6 de jul. de 2021 · Jogue Jogo do Tigrinho no seu PC ou Mac seguindo estes passos simples. Clique em 'Jogar Jogo do Tigrinho no PC' para baixar o …
+node_modules
+dist
+dist-ssr
+*.local
 
-2,9/5(65)
-
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
