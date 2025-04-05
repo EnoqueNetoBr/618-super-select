@@ -1,0 +1,45 @@
+import './dashboard.css';
+
+const styleMinHeight = { minHeight: '50px' };
+
+function Dashboard() {
+  return (
+    <>
+      <div className="c-dashboard-container u-min-height container-fluid bg-dark ">
+        <div className="c-dashboard-row row ">
+          {/* Menu Container */}
+          <div className="col-3 u-min-height bg-primary u-zero">
+            {/* Pill Container */}
+            <div className="row u-zero w-75 mt-5  mx-auto rounded-pill bg-light " >
+              {/* Pill Icon Holder */}
+              <div className="col-3 u-min-height c-pill-icon-holder bg-secondary ">
+                <div className="row bg-light u-min-hight w-75 h-75 m-0 p-0">
+
+                </div>
+              </div>
+              {/* Pill Description Holder */}
+              <div className="col u-min-height u-pos-relative  text-secondary ">
+                {/* Description Holder */}
+                <div className="u-pos-absolute-full">
+                  <p className='d-flex w-100 h-100 justify-content-center align-items-center'>
+                    Descrição
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {/* Products Container */}
+        <div className="col c-min-height bg-secondary">
+
+        </div>
+      </div>
+
+    </>
+  );
+}
+
+
+
+export default Dashboard;

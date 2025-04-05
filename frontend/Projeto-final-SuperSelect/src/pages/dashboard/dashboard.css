@@ -1,3 +1,14 @@
-.c-min-height{
+.position-relative{
+    display: relative;
+}
+
+.position-absolute{
+    display: absolute;
+}
+
+
+
+.min-height{
     min-height: 50px;
 }
+
