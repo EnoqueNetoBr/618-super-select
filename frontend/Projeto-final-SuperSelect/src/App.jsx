@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PaginaDeCadastro from './pages/cadastro/cadastro';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Bootstrap is working</h1>
+      <PaginaDeCadastro />
     </>
   )
 }
