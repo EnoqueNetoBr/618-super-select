@@ -9,6 +9,7 @@ function HeaderLog() {
                 <h1>SuperSelect</h1>
                 <input type="text" name="" id="search" placeholder='Pesquise aqui por produtos e/ou marcas...'/>
                 <div className="usuario">
+                    <img src="/notif.png" alt="" id='notif'/>
                     <img src="/usericon.png" alt="" id='userphoto'/>
                     <h3>Usuário</h3>
                 </div>
