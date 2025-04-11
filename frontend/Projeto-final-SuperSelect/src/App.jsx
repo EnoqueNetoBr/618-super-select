@@ -9,8 +9,7 @@ function App() {
 
   return (
     <>
-    
-      <Dashboard />
+      <h1> Hello, world! <h1/> 
     </>
   )
 }
