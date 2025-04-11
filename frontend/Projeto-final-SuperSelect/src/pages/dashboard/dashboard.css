@@ -1,14 +1,173 @@
-.position-relative{
-    display: relative;
+/* @media (orientation: landscape) {
+  .c-border {
+    border: 3px solid red;
+  }
+
+  .c-button-side{
+    width: 12rem;
+    height: 2.5rem;
+  }
+
+  .c-button-logo{
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .c-button-text{
+    width: 8rem;
+    height: 2rem;
+    margin-left: 0.5rem;
+  }
 }
 
-.position-absolute{
-    display: absolute;
+@media (orientation: portrait) {
+    .c-border {
+        border: 3px solid blue;
+      }
+}
+
+.myBorder{
+    border: 1px solid red;
+}
+
+.myImage {
+    clip-path: circle(50% at 50% 50%);
+  }
+
+
+  .myCard{
+
+    background-color: white;
+    transition: background-color 0.2s;
+    
+    
+  }
+  .myCard:hover{
+    background-color: rgba(0, 0, 0, 0.063);
+  }
+
+  .myDynamicFont{
+    font-size: max(1.5vw, 16px);
+    border: 1px solid red;
+  } 
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  */
+
+/* START Elastic Button CSS */
+.utilityBorder {
+  border: 1px solid rgba(255, 0, 0, 0.25);
+}
+
+.utilityMinBox {
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.utilityPRelative{
+  position: relative;
+}
+
+.utilityPAbsolute {
+  position: absolute;
+}
+
+.utilityPAll {
+  top: 0px;
+  bottom: 0px;
+  left: 0px; 
+  right: 0px;
+}
+
+.dashboardButton {
+  background-color: var(--my-dark-gray);
+  width: clamp(10rem, 30vw, 12rem);
+  height: auto;
+  aspect-ratio: 4;
+}
+
+.dashboardButtonIcon {
+  color: var(--my-blue);
+  font-size: clamp(0.7rem, 2vw, 1.2rem);
+}
+
+.dashboardButtonSeparator {
+  border-right: 1px solid #707070;
+  font-size: clamp(0.7rem, 2vw, 1.3rem);
+}
+
+.dashboardButtonText {
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+/* END Elastic Button CSS */
+
+/* START Elastic Card */
+.myDashboardCard {
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+.myDashboardCard:hover {
+  background-color: rgba(0, 0, 0, 0.063);
+}
+
+.myDashboardCardImage {
+  clip-path: circle(50% at 50% 50%);
+}
+
+.myCardDynamicFontPrice{
+    font-size: max(1.5vw, 16px);
+    color: var(--my-green);
+}
+
+.myCardDynamicFontProductName{
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+    color: black;
+}
+
+.myDashboardCardRating{
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+.myDashboardCardStar{
+    color: goldenrod;
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+
+}
+
+.myDashboardCardNumberReviews{
+    color: var(--my-dark-gray);
+    font-size: 0.6rem;
+}
+/* END Elastic Card */
+
+
+
+/* START Dashboard Page */
+.myDashboardPage{
+  min-height: 80vh;
+  background-color: var(--my-dark-gray);
 }
 
 
-
-.min-height{
-    min-height: 50px;
+.myDashboardHeader {
+  min-height: 20vh;
+  background-color: var(--my-blue);
 }
 
+.myDashboardContent{
+  height: 80%;
+  background-color: var(--my-light-gray);
+}
+
+.myDashboardSideMenu{
+  align-items: stretch;
+}
+/* END Dashboard Page */
