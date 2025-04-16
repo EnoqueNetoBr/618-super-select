@@ -16,10 +16,11 @@ function FormularioCadastro() {
                 <br />
                 <button>Cadastrar</button> 
                 <br />
-                <button>Login</button>
+                <button>Fazer Login</button>
             </div>
        </div> 
     )
 }
+
 
 export default FormularioCadastro
