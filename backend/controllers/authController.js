@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import userModel from "../models/userModel"
+import userModel from "../models/userModel.js"
 
-export default register = async (req, resp) => {
+export const register = async (req, resp) => {
     const { nome, email, senha } = req.body
 
     if (!nome || !email || !senha) {

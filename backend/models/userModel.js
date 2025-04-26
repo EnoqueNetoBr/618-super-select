@@ -4,7 +4,7 @@ class UserModel {
 
     findUserByEmail = async (email) => {
         const query = `SELECT * FROM WHERE email = ?`;
-        cosnt [result] = await connection.execute(query, [email]);
+        const [result] = await connection.execute(query, [email]);
         return result[0]; ;
     }
 
@@ -17,4 +17,4 @@ class UserModel {
 
 }
 
-export default newUserModel();
+export default new UserModel();

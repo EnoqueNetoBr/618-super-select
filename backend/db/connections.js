@@ -1,4 +1,4 @@
-import mysql from "mysql2";
+import mysql from "mysql2/promise";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -11,11 +11,10 @@ const pool = mysql.createPool({
 });
 
 pool.getConnection()
-.then(
-    () => console.log("Conexão com o Banco de Dados estabelecida.")
+.then(() => console.log("Conexão com o Banco de Dados estabelecida.")
 )
-.cath(
+.catch(
     (err) => console.log(`Erro ao se conectar ao Banco de Dados`, err)
 )
 
-export default pool;c
+export default pool;
