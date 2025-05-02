@@ -1,5 +1,6 @@
 import './dashboard.css';
 import defaultImage from '../../../public/DefaultProductImage.png';
+import { DashCard } from '../../components/dashboard/dashCard';
 
 function Dashboard() {
   return (
@@ -44,37 +45,10 @@ function Dashboard() {
               {/* Products Cards Container */}
               <div className='myDashboardProductsCards row utilityMinBox mt-3 d-flex justify-content-start align-items-start'>
                 {/* Product Card Example (Repeat for each product) */}
-                {Array(6)
+                {Array(3)
                   .fill(null)
                   .map((_, index) => (
-                    <div key={index} className='col-12 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center'>
-                      <a href='#' className='btn'>
-                        <div className='card myDashboardCard rounded-4' style={{ width: '18vw', height: 'auto', aspectRatio: '3/4', minWidth: '9rem', maxWidth: '12rem' }}>
-                          {/* Product Image */}
-                          <div className='my-3 d-flex justify-content-center align-items-center' style={{ width: '100%' }}>
-                            <img src={defaultImage} className='myDashboardCardImage' alt='Imagem do produto.' style={{ width: '65%' }} />
-                          </div>
-
-                          {/* Card Body */}
-                          <div className='card-body m-0 p-2 d-flex flex-column justify-content-between align-items-center' style={{ height: '50%' }}>
-                            <div>
-                              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontPrice'>R$ 10,00</h5>
-                            </div>
-                            <div>
-                              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontProductName'>NomeProduto</h5>
-                            </div>
-                            <div className='d-flex flex-row justify-content-between align-items-center'>
-                              <p className='myDashboardCardRating my-auto d-none d-lg-inline'>4,5</p>
-                              {/* Stars */}
-                              {[...Array(5)].map((_, starIndex) => (
-                                <i key={starIndex} className='bi bi-star-fill my-auto myDashboardCardStar' />
-                              ))}
-                              <p className='myDashboardCardNumberReviews my-auto'>&#40; 89 reviews &#41;</p>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
+                    <DashCard key={index} />
                   ))}
               </div>
             </div>
