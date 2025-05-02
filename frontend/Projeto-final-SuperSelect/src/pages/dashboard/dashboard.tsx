@@ -38,16 +38,19 @@ function Dashboard() {
             <div className='myDashboardProducts col bg-light p-3'>
               {/* Products Title */}
               <div className='myDashboardProductsTitle row utilityMinBox mt-3'>
-                <p className='fs-5'>Produtos:</p>
+                <p className='fs-3'>Produtos:</p>
               </div>
 
               {/* Products Cards Container */}
-              <div className='myDashboardProductsCards row utilityMinBox mt-3 d-flex justify-content-start align-items-start'>
+              <div className='myDashboardProductsCards row utilityMinBox mt-3 d-flex justify-content-start align-items-start '>
                 {/* Product Card Example (Repeat for each product) */}
-                {Array(3)
+
+                {Array(10)
                   .fill(null)
                   .map(() => (
-                    <DashCard />
+                    <div className='col-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2 d-flex justify-content-center align-items-center'>
+                      <DashCard />
+                    </div>
                   ))}
               </div>
             </div>
