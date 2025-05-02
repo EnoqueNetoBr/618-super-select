@@ -1,8 +1,11 @@
 export interface Product {
-    ID: number;
-    Name: string;
-    Price: number;
+    id: number;
+    name: string;
+    description: string;
+    price: number;
     imgUrl: string;
+    rating: number;
+    numberReviews: number;
 }
 
 export interface IDashCardProps {

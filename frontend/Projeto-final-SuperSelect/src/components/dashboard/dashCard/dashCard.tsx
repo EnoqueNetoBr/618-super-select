@@ -1,12 +1,15 @@
 import './dashCard.css';
-import defaultImg from '../../../public/DefaultProductImage.png';
-import { Product, IDashCardProps } from '../../customTypes';
+import defaultImg from '../../../../public/DefaultProductImage.png';
+import { Product, IDashCardProps } from '../../../customTypes';
 
 const defaultDashCardProps: Product = {
-  ID: 0,
-  Name: '',
-  Price: 0,
+  id: 0,
+  name: 'No name',
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.  ',
+  price: 0,
   imgUrl: defaultImg,
+  rating: 0,
+  numberReviews: 0,
 };
 
 // Set default props
@@ -16,7 +19,7 @@ DashCard.defaultProps = {
 
 export function DashCard({ product = defaultDashCardProps }: IDashCardProps) {
   return (
-    <div key={product.ID} className='col-12 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center'>
+    <div key={product.id} className='col-12 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center'>
       <a href='#' className='btn'>
         <div className='card myDashboardCard rounded-4' style={{ width: '18vw', height: 'auto', aspectRatio: '3/4', minWidth: '9rem', maxWidth: '12rem' }}>
           {/* Product Image */}
@@ -27,18 +30,22 @@ export function DashCard({ product = defaultDashCardProps }: IDashCardProps) {
           {/* Card Body */}
           <div className='card-body m-0 p-2 d-flex flex-column justify-content-between align-items-center' style={{ height: '50%' }}>
             <div>
-              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontPrice'>R$ {product.Price.toFixed(2)}</h5>
+              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontPrice'>R$ {product.price.toFixed(2)}</h5>
             </div>
             <div>
-              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontProductName'>{product.Name}</h5>
+              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontPrice'>{product.name}</h5>
+            </div>
+            {/* Card Body Description */}
+            <div className='row w-100 h-100 d-none'>
+              <p className='col-10 myCardDynamicFontProductName '>{product.description}</p>
             </div>
             <div className='d-flex flex-row justify-content-between align-items-center'>
-              <p className='myDashboardCardRating my-auto d-none d-lg-inline'>4,5</p>
+              <p className='myDashboardCardRating my-auto d-none d-lg-inline'>{product.rating}</p>
               {/* Stars */}
               {[...Array(5)].map((_, starIndex) => (
                 <i key={starIndex} className='bi bi-star-fill my-auto myDashboardCardStar' />
               ))}
-              <p className='myDashboardCardNumberReviews my-auto'>&#40; 89 reviews &#41;</p>
+              <p className='myDashboardCardNumberReviews my-auto'>&#40; {product.numberReviews} reviews &#41;</p>
             </div>
           </div>
         </div>
