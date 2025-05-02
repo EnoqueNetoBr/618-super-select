@@ -1,5 +1,5 @@
 import './dashCard.css';
-import defaultImg from '../../../../public/DefaultProductImage.png';
+import defaultImg from './DefaultProductImage.png';
 import { IProduct, IDashCardProps } from '../../../customTypes';
 
 const defaultDashCardProps: IProduct = {
