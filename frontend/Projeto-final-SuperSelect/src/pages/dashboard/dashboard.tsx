@@ -2,17 +2,11 @@ import './dashboard.css';
 import { DashCard } from '../../components/dashboard/dashCard/dashCard';
 import { DashButton } from '../../components/dashboard/dashButton/dashButton';
 
-
-
-
 export function Dashboard() {
   return (
     <>
       <div className='landscape'>
-      <div className='myDashboardPage container-fluid m-0 p-0'>
-          {/* Dashboard Header */}
-          <div className='myDashboardHeader utilityMinBox'></div>
-
+        <div className='myDashboardPage container-fluid m-0 p-0'>
           {/* Dashboard Content */}
           <div className='myDashboardContent utilityMinBox row m-0 p-0'>
             {/* Side Menu */}
@@ -28,7 +22,7 @@ export function Dashboard() {
                 {Array(5)
                   .fill(null)
                   .map(() => (
-                    <DashButton  />
+                    <DashButton />
                   ))}
               </div>
             </div>
@@ -48,7 +42,7 @@ export function Dashboard() {
                   .fill(null)
                   .map(() => (
                     <div className='col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 d-flex justify-content-center align-items-center '>
-                      <DashCard  />
+                      <DashCard />
                     </div>
                   ))}
               </div>
@@ -59,8 +53,7 @@ export function Dashboard() {
 
       <div className='portrait'>
         <div className='myDashboardPage container-fluid m-0 p-0'>
-          {/* Dashboard Header */}
-          <div className='myDashboardHeader utilityMinBox'></div>
+
 
           {/* Dashboard Content */}
           <div className='myDashboardContent utilityMinBox row m-0 p-0'>
@@ -97,7 +90,7 @@ export function Dashboard() {
                   .fill(null)
                   .map(() => (
                     <div className='col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 d-flex justify-content-center align-items-center '>
-                      <DashCard  />
+                      <DashCard />
                     </div>
                   ))}
               </div>
@@ -108,5 +101,3 @@ export function Dashboard() {
     </>
   );
 }
-
-
