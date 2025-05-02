@@ -19,7 +19,7 @@ DashCard.defaultProps = {
 
 export function DashCard({ product = defaultDashCardProps }: IDashCardProps) {
   return (
-    <div key={product.id} className='container-fluid m-0 p-0'>
+    <div key={product.id} className='container-fluid m-0 p-0 d-flex justify-content-center align-items-center'>
       <a href='#' className='btn'>
         <div className='card myDashboardCard rounded-4' style={{ width: '18vw', height: 'auto', aspectRatio: '3/4', minWidth: '9rem', maxWidth: '12rem' }}>
           {/* Product Image */}
