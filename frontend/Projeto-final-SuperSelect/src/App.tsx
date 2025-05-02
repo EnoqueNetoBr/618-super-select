@@ -1,16 +1,17 @@
-import './App.css'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { Home } from './pages/home/home';
+import Dashboard from './pages/dashboard/dashboard';
 
 function App() {
-
-
   return (
     <>
-      <h1>Página inicial do projeto.</h1>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/dashboard' element={<Dashboard />}/>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
