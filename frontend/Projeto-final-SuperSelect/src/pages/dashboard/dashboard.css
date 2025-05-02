@@ -171,3 +171,23 @@
   align-items: stretch;
 }
 /* END Dashboard Page */
+
+
+.portrait {
+  display: block;
+}
+
+.landscape {
+  display: none;
+}
+
+@media (orientation: landscape){
+  .portrait {
+    display: none;
+  }
+  
+  .landscape {
+    display: block;
+  }
+  
+}
