@@ -1,8 +1,8 @@
 import './dashCard.css';
 import defaultImg from '../../../../public/DefaultProductImage.png';
-import { Product, IDashCardProps } from '../../../customTypes';
+import { IProduct, IDashCardProps } from '../../../customTypes';
 
-const defaultDashCardProps: Product = {
+const defaultDashCardProps: IProduct = {
   id: 0,
   name: 'No name',
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.  ',

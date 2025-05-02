@@ -1,4 +1,4 @@
-export interface Product {
+export interface IProduct {
     id: number;
     name: string;
     description: string;
@@ -9,5 +9,11 @@ export interface Product {
 }
 
 export interface IDashCardProps {
-    product: Product;
+    product: IProduct;
 }
+
+
+export interface IDashButtonProps {
+    iconName?: string; // Make these optional to allow defaults
+    buttonLabel?: string; // Make these optional to allow defaults
+  }

@@ -1,11 +1,15 @@
 import './dashboard.css';
 import { DashCard } from '../../components/dashboard/dashCard/dashCard';
+import { DashButton } from '../../components/dashboard/dashButton/dashButton';
 
-function Dashboard() {
+
+
+
+export function Dashboard() {
   return (
     <>
       <div className='landscape'>
-        <div className='myDashboardPage container-fluid m-0 p-0'>
+      <div className='myDashboardPage container-fluid m-0 p-0'>
           {/* Dashboard Header */}
           <div className='myDashboardHeader utilityMinBox'></div>
 
@@ -23,13 +27,8 @@ function Dashboard() {
                 {/* Button Example (Repeat for each button) */}
                 {Array(5)
                   .fill(null)
-                  .map((_, index) => (
-                    <div key={index} className='dashboardButton mx-auto mt-3 p-0 rounded-pill d-flex justify-content-start align-items-center'>
-                      <div className='dashboardButtonSeparator pe-2'>
-                        <i className='dashboardButtonIcon bi bi-airplane-fill ms-3 text-ss-blue'></i>
-                      </div>
-                      <div className='dashboardButtonText ms-2'>Histórico de compras</div>
-                    </div>
+                  .map(() => (
+                    <DashButton  />
                   ))}
               </div>
             </div>
@@ -48,8 +47,8 @@ function Dashboard() {
                 {Array(10)
                   .fill(null)
                   .map(() => (
-                    <div className='col-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2 d-flex justify-content-center align-items-center'>
-                      <DashCard />
+                    <div className='col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 d-flex justify-content-center align-items-center '>
+                      <DashCard  />
                     </div>
                   ))}
               </div>
@@ -77,13 +76,8 @@ function Dashboard() {
                 {/* Button Example (Repeat for each button) */}
                 {Array(5)
                   .fill(null)
-                  .map((_, index) => (
-                    <div key={index} className='dashboardButton mx-auto mt-3 p-0 rounded-pill d-flex justify-content-start align-items-center'>
-                      <div className='dashboardButtonSeparator pe-2'>
-                        <i className='dashboardButtonIcon bi bi-airplane-fill ms-3 text-ss-blue'></i>
-                      </div>
-                      <div className='dashboardButtonText ms-2'>Histórico de compras</div>
-                    </div>
+                  .map(() => (
+                    <DashButton iconName={''} buttonLabel={''} />
                   ))}
               </div>
             </div>
@@ -103,7 +97,7 @@ function Dashboard() {
                   .fill(null)
                   .map(() => (
                     <div className='col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 d-flex justify-content-center align-items-center '>
-                      <DashCard />
+                      <DashCard  />
                     </div>
                   ))}
               </div>
@@ -115,4 +109,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+
