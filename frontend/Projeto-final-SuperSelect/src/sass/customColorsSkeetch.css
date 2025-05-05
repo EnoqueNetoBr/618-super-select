@@ -1,0 +1,12 @@
+
+/* Importante: Não veja se as cores já estão importadas como váriaveis da ":root" do arquivo "custom.css".  */
+/* Essa classe é apenas um esboço.  */
+
+.customColors{
+    --my-blue: #007BFF;
+    --my-light-gray: #D9D9D9;
+    --my-dark-gray:  #868889;
+    --my-green: #28A745;
+    --my-light-blue: #90C4FB;
+    --my-red: #DF2929;
+}

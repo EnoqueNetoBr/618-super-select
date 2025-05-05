@@ -1,0 +1,5 @@
+$custom-colors: (
+    "first": red
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
