@@ -1,6 +1,6 @@
 
 import { SignUpForm } from '../../components/signup/signupForm'
-import './signup.css'
+import './signupPage.css'
 
 export function SignUp() {
     return (

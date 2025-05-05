@@ -1,8 +1,8 @@
-import './dashboard.css';
+import './dashboardPage.css';
 import { DashCard } from '../../components/dashboard/dashCard/dashCard';
 import { DashButton } from '../../components/dashboard/dashButton/dashButton';
 
-export function Dashboard() {
+export function DashboardPage() {
   return (
     <>
       <div className='landscape'>
@@ -53,8 +53,6 @@ export function Dashboard() {
 
       <div className='portrait'>
         <div className='myDashboardPage container-fluid m-0 p-0'>
-
-
           {/* Dashboard Content */}
           <div className='myDashboardContent utilityMinBox row m-0 p-0'>
             {/* Side Menu */}
