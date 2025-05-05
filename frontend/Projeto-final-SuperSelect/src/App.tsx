@@ -9,18 +9,18 @@ import { AppFooter } from './components/app/appFooter.js';
 function App() {
   return (
     <>
-      <div className='container-fluid'>
+      <div className='container-fluid m-0 p-0'>
         <AppHeader />
       </div>
       {/* Content */}
-      <div className='container-fluid'>
+      <div className='container-fluid m-0 p-0'>
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/dashboard' element={<DashboardPage />} />
         </Routes>
       </div>
-      <div className="container-fluid">
+      <div className="container-fluid m-0 p-0">
           <AppFooter />
       </div>
     </>

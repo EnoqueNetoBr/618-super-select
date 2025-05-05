@@ -1,5 +1,28 @@
 // import './appHeader.css'
 
+export function AppHeader() {
+  return (
+    <>
+      <>
+        <div className='landscape container-fluid m-0 p-0 w-100 '>
+          <div className='row m-0 p-0' style={{ backgroundColor: '#007bff', width: '100%', height: '15vh' }}>
+            <div className='col-4 '>
+              <MainLogo />
+            </div>
+            <div className='col-4 '>
+              <SearchBar />
+            </div>
+            <div className='col-4'></div>
+          </div>
+        </div>
+        <div className='portrait container-fluid'>
+          <h1>No portrait implementation yet.</h1>
+        </div>
+      </>
+    </>
+  );
+}
+
 function MainLogo() {
   return (
     <>
@@ -41,29 +64,6 @@ function SearchBar() {
           <div className='col'></div>
         </div>
       </div>
-    </>
-  );
-}
-
-export function AppHeader() {
-  return (
-    <>
-      <>
-        <div className='landscape container-fluid m-0 p-0 w-100 '>
-          <div className='row' style={{ backgroundColor: '#007bff', width: '100%', height: '15vh' }}>
-            <div className='col-4 '>
-              <MainLogo />
-            </div>
-            <div className='col-4 '>
-              <SearchBar />
-            </div>
-            <div className='col-4'></div>
-          </div>
-        </div>
-        <div className='portrait container-fluid'>
-          <h1>No portrait implementation yet.</h1>
-        </div>
-      </>
     </>
   );
 }
