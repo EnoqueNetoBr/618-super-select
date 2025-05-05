@@ -49,8 +49,8 @@ export function AppHeader() {
   return (
     <>
       <>
-        <div className='landscape container-fluid'>
-          <div className='row' style={{ backgroundColor: '#007bff', width: '100%', height: '10rem' }}>
+        <div className='landscape container-fluid m-0 p-0 w-100 '>
+          <div className='row' style={{ backgroundColor: '#007bff', width: '100%', height: '15vh' }}>
             <div className='col-4 '>
               <MainLogo />
             </div>
