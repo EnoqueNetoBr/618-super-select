@@ -1,5 +1,6 @@
 import LandingPageBackgroungd from './LandingPageBackground.png';
 import { NavLink } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
 export function LandingPage() {
   return (
@@ -98,7 +99,7 @@ function GoogleSignInButton() {
 function CreateAnAccountButton() {
   return (
     <>
-      <NavLink to="/signup">
+      <Nav.Link to='/signup' className='btn btn-dark' style={{backgroundColor: "rgba(0,0,0,0)"}}  as={NavLink}>
         <div className='bg-primary rounded-pill mx-auto my-3 p-0 button shadow-sm' style={{ width: '27rem', height: '4rem' }}>
           <div className='row h-100 m-0 p-0'>
             {/* Google icon */}
@@ -111,7 +112,7 @@ function CreateAnAccountButton() {
             </div>
           </div>
         </div>
-      </NavLink>
+      </Nav.Link>
     </>
   );
 }
