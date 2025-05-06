@@ -22,7 +22,9 @@ export function DashboardPage() {
                 {Array(5)
                   .fill(null)
                   .map(() => (
-                    <DashButton />
+                    <>
+                      <DashButton />
+                    </>
                   ))}
               </div>
             </div>
