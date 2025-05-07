@@ -41,6 +41,8 @@ function SignUpForm() {
     // console.log(data);
     // const htmlResponse = await response.text();
     // console.log(htmlResponse)
+
+    
   
   };
 
