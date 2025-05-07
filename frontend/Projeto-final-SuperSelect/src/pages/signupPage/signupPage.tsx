@@ -2,22 +2,36 @@ import backgroundImage from './../../images/background/signupPageBackground.png'
 import { Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 // method='POST' action='http://localhost:3000/auth/register'
 
+interface SignUpFormProps {
+  setHtmlContent: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
 export function SignUpPage() {
+  const [htmlContent, setHtmlContent] = useState<string | null>(null);
+
   return (
     <>
+      {/* {htmlContent && <div dangerouslySetInnerHTML={{ __html: htmlContent }} />} */}
+      {htmlContent && (
+        <div className='row bg-success d-flex justify-content-center aling-content-center' style={{ height: '5rem' }}>
+          <p className='text-light text-center my-auto display-6'>Usuário registrado com sucesso.</p>
+        </div>
+      )}
       <div className='container-fluid bg-secondary m-0 p-0 d-flex justify-content-center align-items-center' style={{ height: '75vh', position: 'relative' }}>
-        <SignUpForm />
+        <SignUpForm setHtmlContent={setHtmlContent} />
         <div style={{ position: 'absolute', top: '0px', bottom: '0px', right: '0px', left: '0px' }}>
           <img className='w-100 h-100' src={backgroundImage} alt='Login background image.' style={{ objectFit: 'cover' }} />
         </div>
       </div>
+      {/* Render the HTML content if available */}
     </>
   );
 }
 
-function SignUpForm() {
+function SignUpForm(props: SignUpFormProps) {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -25,25 +39,48 @@ function SignUpForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:3000/auth/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        signUpName: name,
-        signUpEmail: email,
-        signUpPassword: password,
-      }),
-    });
+    console.log('handleSubmit executed.');
+    try {
+      const response = await axios.post(
+        'http://localhost:3000/auth/register',
+        {
+          signUpName: name,
+          signUpEmail: email,
+          signUpPassword: password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+
+      // Assuming the response contains HTML
+      props.setHtmlContent(response.data); // Set the HTML response to state
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error('Error:', error.response?.statusText);
+      } else {
+        console.error('Unexpected error:', error);
+      }
+    }
+
+    // const response = await fetch('http://localhost:3000/auth/register', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     signUpName: name,
+    //     signUpEmail: email,
+    //     signUpPassword: password,
+    //   }),
+    // });
 
     // const data = await response.json();
     // console.log(data);
     // const htmlResponse = await response.text();
     // console.log(htmlResponse)
-
-    
-  
   };
 
   return (
