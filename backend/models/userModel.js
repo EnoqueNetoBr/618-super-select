@@ -3,7 +3,7 @@ import connection from "./../db/connections.js";
 class UserModel {
 
     findUserByEmail = async (email) => {
-        const query = `SELECT * FROM WHERE email = ?`;
+        const query = `SELECT * FROM users WHERE email = ?`;
         const [result] = await connection.execute(query, [email]);
         return result[0]; ;
     }

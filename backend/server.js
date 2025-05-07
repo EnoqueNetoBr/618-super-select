@@ -22,7 +22,7 @@ app.use(
 app.use('/auth', authRoutes);
 
 app.get('/', (req, resp) => {
-  resp.status(200).send("Usuário cadastrado com sucesso!");
+  resp.status(200).send('<h1>Server is running.</h1>');
 
   return;
 });

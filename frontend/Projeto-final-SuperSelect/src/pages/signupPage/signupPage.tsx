@@ -7,21 +7,28 @@ import axios from 'axios';
 
 interface SignUpFormProps {
   setHtmlContent: React.Dispatch<React.SetStateAction<string | null>>;
+  setResponseStatus: React.Dispatch<React.SetStateAction<number | null | undefined>>;
 }
 
 export function SignUpPage() {
   const [htmlContent, setHtmlContent] = useState<string | null>(null);
+  const [responseStatus, setResponseStatus] = useState<number | null | undefined>(null);
 
   return (
     <>
       {/* {htmlContent && <div dangerouslySetInnerHTML={{ __html: htmlContent }} />} */}
-      {htmlContent && (
+      {responseStatus === 201 && (
         <div className='row bg-success d-flex justify-content-center aling-content-center' style={{ height: '5rem' }}>
           <p className='text-light text-center my-auto display-6'>Usuário registrado com sucesso.</p>
         </div>
       )}
+      {responseStatus !== null && responseStatus !== 201 && (
+        <div className='row bg-danger d-flex justify-content-center aling-content-center' style={{ height: '5rem' }}>
+          <p className='text-light text-center my-auto display-6'>Erro ao registrar-se, tente novamente.</p>
+        </div>
+      )}
       <div className='container-fluid bg-secondary m-0 p-0 d-flex justify-content-center align-items-center' style={{ height: '75vh', position: 'relative' }}>
-        <SignUpForm setHtmlContent={setHtmlContent} />
+        <SignUpForm setHtmlContent={setHtmlContent} setResponseStatus={setResponseStatus} />
         <div style={{ position: 'absolute', top: '0px', bottom: '0px', right: '0px', left: '0px' }}>
           <img className='w-100 h-100' src={backgroundImage} alt='Login background image.' style={{ objectFit: 'cover' }} />
         </div>
@@ -35,10 +42,12 @@ function SignUpForm(props: SignUpFormProps) {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Handle Submit
     console.log('handleSubmit executed.');
     try {
       const response = await axios.post(
@@ -55,11 +64,15 @@ function SignUpForm(props: SignUpFormProps) {
         },
       );
 
+      props.setResponseStatus(response.status);
+
       // Assuming the response contains HTML
       props.setHtmlContent(response.data); // Set the HTML response to state
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error('Error:', error.response?.statusText);
+
+        props.setResponseStatus(error.response?.status);
       } else {
         console.error('Unexpected error:', error);
       }
