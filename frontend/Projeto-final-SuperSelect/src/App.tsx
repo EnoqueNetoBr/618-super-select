@@ -5,7 +5,7 @@ import { AppHeader } from './components/app/appHeader';
 import { DashboardPage } from './pages/dashboardPage/dashboardPage.js';
 import { AppFooter } from './components/app/appFooter.js';
 import { LogInPage } from './pages/loginPage/loginPage.jsx';
-import { SignUpPage } from './pages/signupPage/signupPage.jsx';
+import { SignUpPage } from './pages/signupPage/signupPage.js';
 
 function App() {
   return (

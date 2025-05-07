@@ -1,31 +1,32 @@
-import bcrypt from "bcrypt"
-import jwt from "jsonwebtoken"
-import userModel from "../models/userModel.js"
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import userModel from '../models/userModel.js';
 
 export const register = async (req, resp) => {
-    const { nome, email, senha } = req.body
+  // const { nome, email, senha } = req.body
 
-    if (!nome || !email || !senha) {
-        return resp.status(400).send("Todos os campos são obrigatórios.")
-    }
+  console.log(req.body);
 
-    try {
-        const consulta = userModel.findUserByEmail(email)
-        if (consulta.lenght > 0) {
-            return resp.status(409).send("Email já cadastrado.")
-        }
+  //     if (!nome || !email || !senha) {
+  //         return resp.status(400).send("Todos os campos são obrigatórios.")
+  //     }
 
-        const senhaHash = await bcrypt.hash(senha, 10);
+  //     try {
+  //         const consulta = userModel.findUserByEmail(email)
+  //         if (consulta.lenght > 0) {
+  //             return resp.status(409).send("Email já cadastrado.")
+  //         }
 
-        userModel.createUser(nome, email, senhaHash);
+  //         const senhaHash = await bcrypt.hash(senha, 10);
 
-        resp.status(201).send("Usuário cadastrado com sucesso!");
+  //         userModel.createUser(nome, email, senhaHash);
 
+  resp.status(201).send('Usuário cadastrado com sucesso!');
 
-    }
-    catch (err) {
+  //     }
+  //     catch (err) {
 
-        console.error(err)
-        resp.status(500).send("Erro ao cadastrar usuário.")
-    }
-}
+  //         console.error(err)
+  //         resp.status(500).send("Erro ao cadastrar usuário.")
+  //     }
+};
