@@ -1,4 +1,4 @@
-DOTENV:
+***** DOTENV *****
 
 SERVER_PORT=3000
 DB_HOST=127.0.0.1
@@ -8,8 +8,7 @@ DB_NAME=superselectdb
 
 
 
-
-SQL WORKBENCH SCRIPT :
+***** SQL WORKBENCH SCRIPT *****
 
 create database superselectdb;
 use superselectdb;	
@@ -19,8 +18,12 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 );
+select * from users; 
 
 
 
+***** CLEAR TABLE *****
 
-
+SET SQL_SAFE_UPDATES = 0;
+delete from users;
+SET SQL_SAFE_UPDATES = 1;

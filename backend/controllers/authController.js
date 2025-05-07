@@ -20,11 +20,30 @@ export const register = async (req, resp) => {
 
     const senhaHash = await bcrypt.hash(signUpPassword, 10);
 
-    userModel.createUser(signUpName, signUpName, senhaHash);
+    userModel.createUser(signUpName, signUpEmail, senhaHash);
 
     resp.status(201).send('Usuário cadastrado com sucesso!');
   } catch (err) {
     console.error(err);
     resp.status(500).send('Erro ao cadastrar usuário.');
   }
+};
+
+export const login = async (req, resp) => {
+  const { loginUserEmail, loginPassword } = req.body;
+  console.log(loginUserEmail, loginPassword);
+
+  try {
+    const consulta = userModel.findUserByEmail(signUpEmail);
+    if (consulta.lenght > 0) {
+      const isOnDB = await userModel.findUserByEmail(loginUserEmail);
+      console.log(isOnDB);
+    } else {
+      resp.status(400).send('Usuário não cadastrado.');
+    }
+  } catch {
+    console.log('Error on login try catch block.');
+  }
+
+  return;
 };

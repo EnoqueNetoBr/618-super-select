@@ -1,6 +1,8 @@
 import backgroundImage from './../../images/background/signupPageBackground.png';
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import axios from 'axios';
+import { useState } from 'react';
 
 export function LogInPage() {
   return (
@@ -16,23 +18,56 @@ export function LogInPage() {
 }
 
 function LogInForm() {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [responseStatus, setResponseStatus] = useState<number | null | undefined>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Handle Submit
+    console.log('handleSubmit LOGIN executed.');
+    try {
+      const response = await axios.post(
+        'http://localhost:3000/auth/login',
+        {
+          loginUserEmail: email,
+          loginPassword: password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+
+      console.log(response);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error('Error:', error.response?.statusText);
+      } else {
+        console.error('Unexpected error:', error);
+      }
+    }
+  };
+
   return (
     <>
       <div className='container m-0 p-0 rounded-5 shadow-lg' style={{ width: '30rem', height: '30rem', zIndex: '10', backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
-        <form className='h-100' method='' action=''>
+        <form className='h-100' onSubmit={handleSubmit}>
           <div className='container m-0 p-0 p-4 d-flex flex-column justify-content-center align-items-around h-100'>
             <div className='mt-3'>
               <label htmlFor='loginUserEmail'>
                 <p className='fs-5'>Endereço de email: </p>
               </label>
-              <input className='form-control shadow-sm' type='mail' name='loginUserEmail' id='loginUserEmail' />
+              <input onChange={(e) => setEmail(e.target.value)} className='form-control shadow-sm' type='mail' name='loginUserEmail' id='loginUserEmail' />
             </div>
 
             <div className='mt-3'>
               <label htmlFor='loginPassword'>
                 <p className='fs-5'>Senha: </p>
               </label>
-              <input className='form-control shadow-sm' type='password' name='loginPassword' id='loginPassword' />
+              <input onChange={(e) => setPassword(e.target.value)} className='form-control shadow-sm' type='password' name='loginPassword' id='loginPassword' />
             </div>
 
             <button className='mt-auto' type='submit' style={{ all: 'unset' }}>

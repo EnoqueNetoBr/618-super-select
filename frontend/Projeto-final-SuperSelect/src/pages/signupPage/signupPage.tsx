@@ -48,7 +48,7 @@ function SignUpForm(props: SignUpFormProps) {
     e.preventDefault();
 
     // Handle Submit
-    console.log('handleSubmit executed.');
+    console.log('handleSubmit SIGNUP executed.');
     try {
       const response = await axios.post(
         'http://localhost:3000/auth/register',
