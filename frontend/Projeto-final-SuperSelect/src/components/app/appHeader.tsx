@@ -28,7 +28,7 @@ export function AppHeader() {
 function MainLogo() {
   return (
     <>
-      <Nav.Link className='container-fluid m-0 p-0 w-100 h-100 btn btn-dark' to='/' as={NavLink} style={{backgroundColor: "rgba(0,0,0,0)"}}>
+      <Nav.Link className='container-fluid m-0 p-0 w-100 h-100 btn' to='/' as={NavLink} style={{backgroundColor: "rgba(0,0,0,0)"}}>
         <div className='row h-100 '>
           <div className='col-3'>
             <div className='d-flex flex-column justify-content-center aling-items-end h-100'>

@@ -1,4 +1,6 @@
 import backgroundImage from './../../images/background/signupPageBackground.png';
+import { NavLink } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
 export function LogInPage() {
   return (
@@ -56,7 +58,7 @@ function LogInForm() {
 function LogInSubmitButton() {
   return (
     <>
-      <div className='bg-primary rounded-pill mx-auto my-3 p-0 button shadow-sm' style={{ width: '27rem', height: '4rem' }}>
+      <div className='bg-primary rounded-pill mx-auto my-3 p-0 button shadow-sm btn' style={{ width: '27rem', height: '4rem' }}>
         <div className='row h-100 m-0 p-0'>
           {/* Google icon */}
           <div className='col-3 d-flex justify-content-center align-items-center m-0 p-0 '>
@@ -75,18 +77,20 @@ function LogInSubmitButton() {
 function CreateAccountButton() {
   return (
     <>
-      <div className='bg-primary rounded-pill mx-auto mb-3 p-0 button shadow-sm' style={{ width: '27rem', height: '4rem' }}>
-        <div className='row h-100 m-0 p-0'>
-          {/* Google icon */}
-          <div className='col-3 d-flex justify-content-center align-items-center m-0 p-0 '>
-            {/* SVG */}
-            <i className='bi bi-person-add text-light' style={{ fontSize: '2.6rem' }}></i>
-          </div>
-          <div className='col h-100 m-0 p-0 d-flex flex-column justify-content-center aling-items-center'>
-            <p className='fs-3 m-0 p-0 text-center text-light'>Criar uma conta</p>
+      <Nav.Link className='btn' to='/signup' as={NavLink}>
+        <div className='bg-primary rounded-pill mx-auto mb-3 p-0 button shadow-sm' style={{ width: '27rem', height: '4rem' }}>
+          <div className='row h-100 m-0 p-0'>
+            {/* Google icon */}
+            <div className='col-3 d-flex justify-content-center align-items-center m-0 p-0 '>
+              {/* SVG */}
+              <i className='bi bi-person-add text-light' style={{ fontSize: '2.6rem' }}></i>
+            </div>
+            <div className='col h-100 m-0 p-0 d-flex flex-column justify-content-center aling-items-center'>
+              <p className='fs-3 m-0 p-0 text-center text-light'>Criar uma conta</p>
+            </div>
           </div>
         </div>
-      </div>
+      </Nav.Link>
     </>
   );
 }
