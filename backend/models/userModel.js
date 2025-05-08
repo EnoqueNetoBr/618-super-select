@@ -5,7 +5,7 @@ class UserModel {
     findUserByEmail = async (email) => {
         const query = `SELECT * FROM users WHERE email = ?`;
         const [result] = await connection.execute(query, [email]);
-        return result[0]; ;
+        return result[0]; 
     }
 
     createUser = async(name, email, passwordHash) => {
