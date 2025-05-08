@@ -90,7 +90,7 @@ export const login = async (req, resp) => {
   }
 };
 
-function authenticateToken(req, resp, next) {
+export function authenticateToken(req, resp, next) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
   if (token == null) {

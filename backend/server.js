@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
+import secureRoutes from './routes/secureRoutes.js';
 import multer from 'multer';
 import path from 'path';
 
@@ -40,6 +41,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/auth', authRoutes);
+app.use('/secure', secureRoutes);
 
 app.get('/', (req, resp) => {
   resp.status(200).send('<h1>Server is running.</h1>');

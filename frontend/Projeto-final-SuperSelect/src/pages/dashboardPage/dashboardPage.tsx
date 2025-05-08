@@ -19,13 +19,20 @@ export function DashboardPage() {
               {/* Buttons Container */}
               <div className='myDashboardButtonsContainer utilityMinBox h-75 d-flex flex-column justify-content-start align-items-center'>
                 {/* Button Example (Repeat for each button) */}
-                {Array(5)
+                {/* {Array(5)
                   .fill(null)
                   .map(() => (
                     <>
                       <DashButton />
                     </>
-                  ))}
+                  ))} */}
+
+                <DashButton iconName='bi-house' buttonLabel='Home' navLink='/' />
+                <DashButton iconName='bi-plus-circle' buttonLabel='Adicionar Produto' />
+                <DashButton iconName='bi-clock-history' buttonLabel='Histórico de Produtos' />
+                <DashButton iconName='bi-clipboard2-data' buttonLabel='Relatórios' />
+                <DashButton iconName='bi-gear' buttonLabel='Configurações' />
+
               </div>
             </div>
 

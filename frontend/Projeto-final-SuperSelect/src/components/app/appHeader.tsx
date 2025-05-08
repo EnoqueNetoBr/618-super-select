@@ -1,8 +1,11 @@
 // import './appHeader.css'
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import { useState } from 'react';
 
 export function AppHeader() {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+
   return (
     <>
       <>
@@ -14,7 +17,13 @@ export function AppHeader() {
             <div className='col-4 '>
               <SearchBar />
             </div>
-            <div className='col-4'></div>
+            <div className='col-4'>
+              {isLoggedIn && (
+                <div className='h-100'>
+                  <MyDashboardButton />
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <div className='portrait container-fluid'>
@@ -28,7 +37,7 @@ export function AppHeader() {
 function MainLogo() {
   return (
     <>
-      <Nav.Link className='container-fluid m-0 p-0 w-100 h-100 btn' to='/' as={NavLink} style={{backgroundColor: "rgba(0,0,0,0)"}}>
+      <Nav.Link className='container-fluid m-0 p-0 w-100 h-100 btn' to='/' as={NavLink} style={{ backgroundColor: 'rgba(0,0,0,0)' }}>
         <div className='row h-100 '>
           <div className='col-3'>
             <div className='d-flex flex-column justify-content-center aling-items-end h-100'>
@@ -66,6 +75,18 @@ function SearchBar() {
           <div className='col'></div>
         </div>
       </div>
+    </>
+  );
+}
+
+export function MyDashboardButton() {
+  return (
+    <>
+      <Nav.Link to='/dashboard' as={NavLink} className='h-100'>
+        <div className='w-100 h-100 d-flex justify-content-end aling-items-center pe-5'>
+          <i className='bi bi-person-circle display-3 my-auto'></i>
+        </div>
+      </Nav.Link>
     </>
   );
 }
