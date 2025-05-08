@@ -5,6 +5,8 @@ DB_HOST=127.0.0.1
 DB_USER=root
 DB_PASS=
 DB_NAME=superselectdb
+ACCESS_TOKEN_SECRET=secret
+REFRESH_TOKEN_SECRET=refreshsecret
 
 
 

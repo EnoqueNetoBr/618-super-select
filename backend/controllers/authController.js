@@ -66,9 +66,8 @@ export const login = async (req, resp) => {
 
     // Assuming user[0] contains the user object
     const storedHash = user.password; // Adjust based on your user model
-    console.log(storedHash)
+    console.log(storedHash);
     console.log(user);
-    
 
     // Compare the provided password with the stored hash
     const isPasswordValid = await bcrypt.compare(loginPassword, storedHash);
@@ -78,9 +77,29 @@ export const login = async (req, resp) => {
     }
 
     // If everything is fine, you can send a success response
-    resp.status(200).send('Login bem-sucedido!'); // Successful login
+    // resp.status(200).send('Login bem-sucedido!'); // Successful login
+
+    const userEmail = loginUserEmail;
+    const currentUser = { email: userEmail };
+
+    const accessToken = jwt.sign(currentUser, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
+    resp.json({ accessToken: accessToken });
   } catch (error) {
     console.error('Error during login:', error);
     resp.status(500).send('Erro interno do servidor.'); // Internal server error
   }
 };
+
+function authenticateToken(req, resp, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (token == null) {
+    return resp.sendStatus(401);
+  }
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, currentUser) => {
+    if (err) return resp.senStatus(403);
+    req.userEmail = currentUser; //VERIFY THIS LINE OF CODE!!!
+    next();
+  });
+}
