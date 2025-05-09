@@ -216,6 +216,7 @@ function ProductFormInputs(props: IProductFormInputsProps) {
                 name='productRating'
                 id='productRating'
                 value={props.productRating}
+                step={0.5}
               />
             </div>
 
