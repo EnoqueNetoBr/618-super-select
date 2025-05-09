@@ -17,6 +17,9 @@ interface IProductFormInputsProps {
   handleImg: any; //(e: React.ChangeEvent<HTMLInputElement>) => Promise<void>
   productImg: File | null;
   imgUpdater: number;
+  productRating: number;
+  productPrice: number;
+  productNumberOfReviews: number;
 }
 
 interface IResetCardButtonProps {
@@ -114,7 +117,7 @@ export function AddProductPage() {
       <div className=' bg-secondary m-0 p-0 ' style={{ height: '75vh' }}>
         <form className=' row h-100' onSubmit={handleSubmit}>
           <div className='col-4 h-100 d-flex justify-content-center align-items-center  m-0 p-0' style={{ position: 'relative' }}>
-            <ProductFormInputs setProductName={setProductName} setProductDescription={setProductDescription} setProductPrice={setProductPrice} setProductImgUrl={setProductImgUrl} setProductRating={setProductRating} setProductNumberOfReviews={setProductNumberOfReviews} setImgUpdater={setImgUpdater} imgUpdater={imgUpdater} productImg={productImg} setProductImg={setProductImg} handleImg={handleImg} />
+            <ProductFormInputs productNumberOfReviews={productNumberOfReviews} productPrice={productPrice} productRating={productRating} setProductName={setProductName} setProductDescription={setProductDescription} setProductPrice={setProductPrice} setProductImgUrl={setProductImgUrl} setProductRating={setProductRating} setProductNumberOfReviews={setProductNumberOfReviews} setImgUpdater={setImgUpdater} imgUpdater={imgUpdater} productImg={productImg} setProductImg={setProductImg} handleImg={handleImg} />
             <div className='' style={{ position: 'absolute', top: '0px', bottom: '0px', left: '0px', right: '0px', overflow: 'clip' }}>
               <img className='h-100' src={backgroundImg} alt='' style={{ objectFit: 'cover', opacity: '25%' }} />
             </div>
@@ -173,21 +176,69 @@ function ProductFormInputs(props: IProductFormInputsProps) {
               <label htmlFor='productPrice'>
                 <p className='fs-5'>Preço(em centavos): </p>
               </label>
-              <input onChange={(e) => props.setProductPrice(Number(e.target.value))} className='form-control shadow-sm' type='number' name='productPrice' id='productPrice' />
+              <input
+                onChange={(e) =>
+                  props.setProductPrice(() => {
+                    const x = Number(e.target.value);
+                    if (x < 0) {
+                      return 0;
+                    }
+                    return x;
+                  })
+                }
+                className='form-control shadow-sm'
+                type='number'
+                name='productPrice'
+                id='productPrice'
+                value={props.productPrice}
+              />
             </div>
 
             <div className='my-auto'>
               <label htmlFor='productRating'>
                 <p className='fs-5'>Nota(de 0 a 5): </p>
               </label>
-              <input onChange={(e) => props.setProductRating(Number(e.target.value))} className='form-control shadow-sm' type='number' name='productRating' id='productRating' />
+              <input
+                onChange={(e) =>
+                  props.setProductRating(() => {
+                    const x = Number(e.target.value);
+                    if (x < 0) {
+                      return 0;
+                    }
+                    if (x > 5) {
+                      return 5;
+                    }
+                    return x;
+                  })
+                }
+                className='form-control shadow-sm'
+                type='number'
+                name='productRating'
+                id='productRating'
+                value={props.productRating}
+              />
             </div>
 
             <div className='my-auto'>
               <label htmlFor='productNumberOfReviews'>
                 <p className='fs-5'>Número de Reviews: </p>
               </label>
-              <input onChange={(e) => props.setProductNumberOfReviews(Number(e.target.value))} className='form-control shadow-sm' type='number' name='productNumberOfReviews' id='productNumberOfReviews' />
+              <input
+                onChange={(e) =>
+                  props.setProductNumberOfReviews(() => {
+                    const x = Number(e.target.value);
+                    if (x < 0) {
+                      return 0;
+                    }
+                    return x;
+                  })
+                }
+                className='form-control shadow-sm'
+                type='number'
+                name='productNumberOfReviews'
+                id='productNumberOfReviews'
+                value={props.productNumberOfReviews}
+              />
             </div>
 
             <button className='mt-auto' type='submit' style={{ all: 'unset' }}>
