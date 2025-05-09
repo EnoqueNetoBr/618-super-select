@@ -49,8 +49,10 @@ app.get('/', (req, resp) => {
   return;
 });
 
-app.post('/upload', upload.single('file'), (req, resp) => {
-  resp.json(req.file);
+app.post('/upload', upload.single('productImg'), (req, resp) => {
+  // resp.json(req.file);
+  console.log('****BACKEND POST upload TRIGGERED.*****');
+  console.log(req.body);
   return;
 });
 
