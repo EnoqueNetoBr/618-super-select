@@ -1,10 +1,10 @@
 // import './appHeader.css'
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
-import { useState } from 'react';
+import { useGlobalContext } from '../../contexts/globalContext';
 
 export function AppHeader() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+  const globalContext = useGlobalContext();
 
   return (
     <>
@@ -18,7 +18,7 @@ export function AppHeader() {
               <SearchBar />
             </div>
             <div className='col-4'>
-              {isLoggedIn && (
+              {globalContext!.isLoggedIn && (
                 <div className='h-100'>
                   <MyDashboardButton />
                 </div>

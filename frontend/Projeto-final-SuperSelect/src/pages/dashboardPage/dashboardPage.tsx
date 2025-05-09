@@ -28,11 +28,10 @@ export function DashboardPage() {
                   ))} */}
 
                 <DashButton iconName='bi-house' buttonLabel='Home' navLink='/' />
-                <DashButton iconName='bi-plus-circle' buttonLabel='Adicionar Produto' />
+                <DashButton iconName='bi-plus-circle' buttonLabel='Adicionar Produto' navLink='/addprod' />
                 <DashButton iconName='bi-clock-history' buttonLabel='Histórico de Produtos' />
                 <DashButton iconName='bi-clipboard2-data' buttonLabel='Relatórios' />
                 <DashButton iconName='bi-gear' buttonLabel='Configurações' />
-
               </div>
             </div>
 

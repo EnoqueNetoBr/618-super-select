@@ -30,11 +30,12 @@ export function DashCard({ product = defaultDashCardProps }: IDashCardProps) {
           {/* Card Body */}
           <div className='card-body m-0 p-2 d-flex flex-column justify-content-between align-items-center' style={{ height: '50%' }}>
             <div>
-              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontPrice'>R$ {product.price.toFixed(2)}</h5>
+              <p className='card-title text-center m-0 p-0 fs-4'>{product.name}</p>
             </div>
             <div>
-              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontPrice'>{product.name}</h5>
+              <h5 className='card-title text-center m-0 p-0 myCardDynamicFontPrice'>R$ {(product.price / 100).toFixed(2)}</h5>
             </div>
+
             {/* Card Body Description */}
             <div className='row w-100 h-100 d-none'>
               <p className='col-10 myCardDynamicFontProductName '>{product.description}</p>
