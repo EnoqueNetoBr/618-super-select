@@ -58,3 +58,67 @@ select * from users;
 SET SQL_SAFE_UPDATES = 0;
 delete from users;
 SET SQL_SAFE_UPDATES = 1;
+
+
+
+
+***** IA SUGGESTIONS (to verify) *****
+- Drop the existing tables if they exist
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS users;
+
+-- Create the users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Create the products table with a foreign key reference to the users table
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price INT NOT NULL,
+    imgUrl VARCHAR(255), 
+    rating DECIMAL(2, 1) CHECK (rating >= 0 AND rating <= 5),
+    numberOfReviews INT,
+    userId INT,
+    FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE
+);
+
+
+
+To retrieve all products related to a specific user, you can use a SQL SELECT statement with a JOIN clause to combine data from the users and products tables based on the foreign key relationship. Here’s an example query that demonstrates how to do this:
+sql
+
+
+
+SELECT p.*
+FROM products p
+JOIN users u ON p.userId = u.id
+WHERE u.id = ?;  -- Replace ? with the specific user ID you want to query
+
+
+
+
+
+Explanation:
+SELECT p.*: This selects all columns from the products table (aliased as p).
+FROM products p: This specifies the products table as the main table in the query.
+JOIN users u ON p.userId = u.id: This joins the users table (aliased as u) with the products table based on the condition that the userId in the products table matches the id in the users table.
+WHERE u.id = ?: This filters the results to only include products associated with a specific user. You should replace the ? with the actual user ID you want to query.
+Example:
+If you want to find all products for a user with an ID of 1, the query would look like this:
+sql
+
+
+
+
+
+SELECT p.*
+FROM products p
+JOIN users u ON p.userId = u.id
+WHERE u.id = 1;
+This will return all products that are associated with the user whose ID is 1.
