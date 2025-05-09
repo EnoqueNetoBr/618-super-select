@@ -31,6 +31,24 @@ CREATE TABLE products (
     numberOfReviews INT
 );
 
+
+*****ALTERNATIVE PRODUCTS TABLE*****                                                                                          
+
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price INT NOT NULL,
+    imgUrl VARCHAR(255), 
+    rating DECIMAL(2, 1) CHECK (rating >= 0 AND rating <= 5),
+    numberOfReviews INT,
+    FOREIGN KEY (id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+*************************************   
+
+
+
 select * from users; 
 
 

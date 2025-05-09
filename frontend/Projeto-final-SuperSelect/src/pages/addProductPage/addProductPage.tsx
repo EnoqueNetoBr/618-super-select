@@ -27,7 +27,7 @@ interface IResetCardButtonProps {
 }
 
 export function AddProductPage() {
-  const [productName, setProductName] = useState<string>('');
+  const [productName, setProductName] = useState<string>('Produto');
   const [productDescription, setProductDescription] = useState<string>('');
   const [productPrice, setProductPrice] = useState<number>(0);
   const [productImgUrl, setProductImgUrl] = useState<string>('');
@@ -50,16 +50,6 @@ export function AddProductPage() {
 
     console.log('Card Handle Submit executed.');
 
-    // const currentProduct: IProduct = {
-    //   id: 0,
-    //   name: productName,
-    //   description: '',
-    //   price: productPrice,
-    //   imgUrl: '',
-    //   rating: productRating,
-    //   numberReviews: productNumberOfReviews,
-    // };
-
     const formData = new FormData();
     formData.append('productName', productName);
     formData.append('productPrice', String(productPrice));
@@ -70,11 +60,6 @@ export function AddProductPage() {
     } else {
       console.log('No product Img on the formData.');
     }
-
-    // const data = {
-    //   currentProduct: currentProduct,
-    //   productImg: productImg,
-    // };
 
     try {
       const response = await axios.post('http://localhost:3000/upload', formData, {
@@ -136,7 +121,7 @@ export function AddProductPage() {
           </div>
           <div className='col-4 h-100 bg-secondary d-flex flex-column justify-content-around align-items-center'>
             <ResetCardButton handleReset={handleReset} />
-            <ConfirmCardButton handleSubmit={handleSubmit} />
+            <ConfirmCardButton />
           </div>
         </form>
       </div>

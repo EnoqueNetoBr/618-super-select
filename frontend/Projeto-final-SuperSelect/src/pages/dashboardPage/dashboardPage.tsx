@@ -48,9 +48,9 @@ export function DashboardPage() {
 
                 {Array(10)
                   .fill(null)
-                  .map(() => (
+                  .map((_, index) => (
                     <div className='col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 d-flex justify-content-center align-items-center '>
-                      <DashCard />
+                      <DashCard key={index} />
                     </div>
                   ))}
               </div>

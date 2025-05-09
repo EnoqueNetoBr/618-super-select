@@ -24,10 +24,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 dotenv.config();
-
-const app = express();
-
 const PORT = process.env.SERVER_PORT;
+const app = express();
+app.use(cors());
 
 //Middlewares
 app.use(express.json());
@@ -38,7 +37,6 @@ app.use(express.json());
 //     origin: 'http://localhost:5173',
 //   }),
 // );
-app.use(cors());
 
 app.use('/auth', authRoutes);
 app.use('/secure', secureRoutes);
@@ -49,10 +47,20 @@ app.get('/', (req, resp) => {
   return;
 });
 
+// app.get('/images/:filename', (req, res) => {
+//   const filename = req.params.filename;
+//   const filePath = path.join(__dirname, 'uploads', filename);
+//   "backend\uploads\vegetablesBackground-1746809486860.jpg"
+//   res.sendFile(filePath);
+// });
+
 app.post('/upload', upload.single('productImg'), (req, resp) => {
   // resp.json(req.file);
+  const filePath = req.file.path; // This is the path to the uploaded file
   console.log('****BACKEND POST upload TRIGGERED.*****');
   console.log(req.body);
+  console.log(`File uploaded successfully! File path: ${filePath}`);
+  resp.send(`File uploaded successfully! File path: ${filePath}`);
   return;
 });
 

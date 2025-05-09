@@ -5,6 +5,8 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface IGlobalContext {
   isLoggedIn: boolean;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  saveTokenLocalStorage: (token: string) => void;
+  getTokenLocalStorage: () => string | null;
 }
 
 // Create the context with a default value
@@ -12,8 +14,18 @@ const MyGlobalContext = createContext<IGlobalContext | undefined>(undefined);
 
 // Create a provider component
 export function GlobalProvider({ children }: { children: ReactNode }) {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true); // Initial state
-  const context: IGlobalContext = { isLoggedIn, setIsLoggedIn };
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // Initial state
+  function saveTokenLocalStorage(token: string) {
+    localStorage.setItem('jwtToken', token);
+    return;
+  }
+
+  function getTokenLocalStorage(): string | null {
+    const token = localStorage.getItem('jwtToken');
+
+    return token;
+  }
+  const context: IGlobalContext = { isLoggedIn, setIsLoggedIn, saveTokenLocalStorage, getTokenLocalStorage };
   return <MyGlobalContext.Provider value={context}>{children}</MyGlobalContext.Provider>;
 }
 

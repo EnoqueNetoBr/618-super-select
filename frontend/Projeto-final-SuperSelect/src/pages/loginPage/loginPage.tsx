@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import axios from 'axios';
 import { useState } from 'react';
+import { useGlobalContext } from '../../contexts/globalContext';
 
 export function LogInPage() {
   return (
@@ -21,6 +22,7 @@ function LogInForm() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [responseStatus, setResponseStatus] = useState<number | null | undefined>(null);
+  const { saveTokenLocalStorage, setIsLoggedIn } = useGlobalContext();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +43,11 @@ function LogInForm() {
         },
       );
 
+      // Saving the token in the local storage;
       console.log(response);
+      const token = response.data.accessToken;
+      saveTokenLocalStorage(token);
+      setIsLoggedIn(true);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error('Error:', error.response?.statusText);
